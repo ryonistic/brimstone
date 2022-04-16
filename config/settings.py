@@ -13,7 +13,6 @@ import os
 import sys
 from pathlib import Path
 from decouple import config as secret_manager
-from django.conf.global_settings import STATICFILES_DIRS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
