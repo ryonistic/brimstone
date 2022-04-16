@@ -13,6 +13,7 @@ import os
 import sys
 from pathlib import Path
 from decouple import config as secret_manager
+from django.conf.global_settings import STATICFILES_DIRS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     #local
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+    'courses.apps.CoursesConfig',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -125,10 +127,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'brimstone', 'static'),]
 MEDIA_URL = '/media/'
-# LOGIN_URL = 'login'
-# LOGIN_REDIRECT_URL = 'home'
-# LOGOUT_URL = 'logout'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'logout'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

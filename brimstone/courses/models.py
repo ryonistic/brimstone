@@ -12,5 +12,8 @@ class Course(models.Model):
     name = models.CharField(max_length=120)
     duration = models.PositiveIntegerField(default=4)
     description = models.TextField()
-    hod = models.ForeignKey(settings.AUTH_USER_MODEL)
-    stream = models.CharField(choices = STREAM_CHOICES)
+    hod = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
+    stream = models.CharField(choices = STREAM_CHOICES, max_length=55)
+
+    def __str__(self):
+        return self.name

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{%block title%}Courses{%endblock title%}
+{%block content%}
+<div>
+  <form class="form-control p-2 grid m-2" method="POST"> 
+    {%csrf_token%}
+    <input type="text" placeholder="Username" name="username" class="p-2 m-2 form-control border-2 border-blue-600" required/>
+    <input type="password" placeholder="Password" name="password" class="p-2 m-2 form-control border-2 border-blue-600" required/>
+    <button class="p-2 bg-blue-500 hover:bg-blue-700 rounded text-white" type="submit">Login</button>
+  </form>
+</div>
+{%endblock content%}

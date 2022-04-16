@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{%block title%}Courses{%endblock title%}
+{%block content%}
+{%for course in courses%}
+<div>
+  <h1 class="text-3xl font-bold text-center">{{course.name}}</h1>
+  <p class="bg-gray-200 text-gray-700 font-bold">{{course.duration}} years</p>
+</div>
+{%endfor%}
+{%endblock content%}
