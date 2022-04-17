@@ -1,5 +1,7 @@
 {%extends 'base.html'%}
+{%load static%}
 {%block title%}Home{%endblock title%}
 {%block content%}
 <h1 class="bg-red-600 text-white">Home Page</h1>
+<img src="{% static 'images/college.jpg' %}" alt="">
 {%endblock content%}

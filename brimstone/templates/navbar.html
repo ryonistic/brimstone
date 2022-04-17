@@ -4,6 +4,11 @@
     <li class="p-2 m-2 text-white font-bold text-2xl"><a href="">Gallery</a></li>
     <li class="p-2 m-2 text-white font-bold text-2xl"><a href="">Help</a></li>
     <li class="p-2 m-2 text-white font-bold text-2xl"><a href="">About</a></li>
+    {% if user.is_authenticated %}
+    <li class="p-2 m-2 text-white font-bold text-2xl"><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
     <li class="p-2 m-2 text-white font-bold text-2xl"><a href="{% url 'login' %}">Login</a></li>
+    <li class="p-2 m-2 text-white font-bold text-2xl"><a href="{% url 'register' %}">Register</a></li>
+    {% endif%}
   </ul>
 </nav>
