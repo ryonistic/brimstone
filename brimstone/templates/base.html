@@ -10,7 +10,7 @@
   <body>
       {%if messages%}
       {%for message in messages%}
-      {{ message }}
+      <p class="text-white bg-blue-400">{{ message }}</p>
       {%endfor%}
       {%endif%}
     {%include 'navbar.html'%}

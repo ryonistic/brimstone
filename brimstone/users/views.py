@@ -1,3 +1,5 @@
+"""Authentication views are listed here, any changes you make will affect
+the authentication."""
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as logthemin, logout as logthemout
 from .forms import UserRegisterForm
@@ -12,6 +14,7 @@ def login(request):
             user = authenticate(request, username=username,password=password)
             if user is not None:
                 logthemin(request, user)
+                messages.success(request, 'Logged in')
                 return redirect('home')
         else:
             return render(request, 'login.html', {})
@@ -21,6 +24,7 @@ def login(request):
 def logout(request):
     if request.user.is_authenticated:
         logthemout(request)
+        messages.success(request, 'Logged out')
         return redirect('home')
     else:
         return redirect('login')
