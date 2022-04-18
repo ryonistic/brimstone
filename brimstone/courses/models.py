@@ -1,6 +1,7 @@
+"""This area is reserved for defining object\
+        instances for the database tables"""
 from django.db import models
 from django.conf import settings
-
 
 class Course(models.Model):
     """ This is a model for adding courses in the database"""
