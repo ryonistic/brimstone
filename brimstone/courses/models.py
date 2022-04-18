@@ -3,6 +3,7 @@ from django.conf import settings
 
 
 class Course(models.Model):
+    """ This is a model for adding courses in the database"""
     STREAM_CHOICES = (
             ('1','Science'),
             ('2','Arts'),
