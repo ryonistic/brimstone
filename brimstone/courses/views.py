@@ -1,6 +1,6 @@
-from django.db.models.query import QuerySet
-from django.shortcuts import render
+# from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Course
 
 
@@ -9,7 +9,7 @@ class CourseListView(ListView):
     queryset = Course.objects.all()
     context_object_name = "courses"
 
-class CourseDetailView(DetailView):
+class CourseDetailView(LoginRequiredMixin, DetailView):
     template_name = 'course_detail.html'
     queryset = Course.objects.all()
     context_object_name = "course"
