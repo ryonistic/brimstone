@@ -27,6 +27,7 @@ def logout(request):
         messages.success(request, 'Logged out')
         return redirect('home')
     else:
+        messages.success(request, 'You can\'t log out if you are not logged in')
         return redirect('login')
 
 def register(request):
@@ -42,11 +43,12 @@ def register(request):
                 messages.success(request, 'Registration Successful')
                 return redirect('home')
             else:
-                messages.success(request, 'There was an error with your details.')
+                messages.success(request, 'There was an error with your details. Try Again.')
                 return redirect('register')
         else:
             form = UserRegisterForm()
             return render(request, 'register.html', {'form':form})
     else:
+        messages.success(request, 'You are logged in, log out first.')
         return redirect('home')
 

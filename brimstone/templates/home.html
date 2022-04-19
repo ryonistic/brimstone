@@ -4,4 +4,15 @@
 {%block content%}
 <h1 class="bg-red-600 text-white font-bold text-center">Admissions closing on {{date_of_closing}}</h1>
 <img class="w-full object-cover" style="max-height:820px;" src="{% static 'images/college.jpg' %}" alt="">
+{% if posts %}
+{% for post in posts %}
+{{post.title}}
+Read more <a href="{{post.get_absolute_url}}" class="text-blue-600">here</a>
+{{post.author}}
+{% if post.image %}
+<img src="{{post.image.url}}" class="img-fluid" alt="">
+{% endif %}
+on {{post.date_posted}}
+{% endfor %}
+{% endif %}
 {%endblock content%}

@@ -84,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'brimstone',
-        'USER': 'brimstone_admin',
+        'USER': 'brimstone',
         'PASSWORD': 'brimstonetesting',
         'HOST': 'localhost',
         'PORT': '',
