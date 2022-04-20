@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'courses.apps.CoursesConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
 AUTH_USER_MODEL = 'users.User'

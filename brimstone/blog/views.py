@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
 from .forms import CreatePostForm
 from .models import Post
@@ -30,5 +30,5 @@ def createpost(request):
 
 
 def postdetail(request, slug):
-    post = Post.objects.get(slug=slug)
+    post = get_object_or_404(Post, slug=slug)
     return render(request, 'postdetail.html', {'post':post})
