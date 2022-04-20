@@ -7,4 +7,3 @@ from .models import User
 class UserAdmin(OldUserAdmin):
     list_display = ('username', 'email', 'is_student')
     fieldsets = OldUserAdmin.fieldsets + (('User Type', {'fields': ('is_student',)}),)
-

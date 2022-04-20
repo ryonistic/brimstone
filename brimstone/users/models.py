@@ -33,4 +33,4 @@ class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     is_student = models.BooleanField(default=False)
     def __str__(self):
-        return str(self.username)
+        return f'{self.first_name} {self.last_name}'
