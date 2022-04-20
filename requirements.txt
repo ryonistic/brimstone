@@ -6,8 +6,10 @@
 #
 
 -i https://pypi.org/simple
-asgiref==3.5.0; python_version >= '3.7'
+asgiref==3.5.0
+django-case-insensitive-field==1.0.3
 django==4.0.4
+pillow==9.1.0
 psycopg2==2.9.3
 python-decouple==3.6
-sqlparse==0.4.2; python_version >= '3.5'
+sqlparse==0.4.2
