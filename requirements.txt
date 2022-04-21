@@ -7,9 +7,17 @@
 
 -i https://pypi.org/simple
 asgiref==3.5.0
+bleach==4.1.0; python_version >= '3.6'
+django-bleach==2.0.0
 django-case-insensitive-field==1.0.3
+django-ckeditor==6.4.0
+django-js-asset==2.0.0; python_version >= '3.6'
 django==4.0.4
+packaging==21.3; python_version >= '3.6'
 pillow==9.1.0
 psycopg2==2.9.3
+pyparsing==3.0.8; python_full_version >= '3.6.8'
 python-decouple==3.6
+six==1.16.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
 sqlparse==0.4.2
+webencodings==0.5.1
