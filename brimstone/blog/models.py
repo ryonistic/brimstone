@@ -2,12 +2,13 @@ from PIL import Image
 from django.db import models
 from django.utils.text import slugify
 from django.conf import settings
-
+from ckeditor.fields import RichTextField
 
 class Post(models.Model):
     """slugs are unique, author sets to null on on_delete"""
     title = models.CharField(max_length=150)
-    content = models.TextField()
+    content = RichTextField()
+    # content = models.TextField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL,null=True, on_delete=models.SET_NULL)
     date_posted = models.DateField(auto_now_add=True)
     slug = models.SlugField(max_length=300, unique=True)

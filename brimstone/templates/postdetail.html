@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
+{%load bleach_tags %}
 {% block title %}
-{{post.title|truncatechars:20}}
+{{post.title|bleach|truncatechars:20}}
 {% endblock title %}
 {% block content %}
-<div class="grid place-items-start">
+<div class="grid p-2 m-2 place-items-start">
 <h1 class="font-bold p-2 m-2 text-gray-800 text-3xl">
-{{post.title}}
+{{post.title|bleach}}
 </h1>
 <p class="text-gray-700 m-2 p-2">
-{{post.content}}
+{{post.content|bleach}}
 </p>
 <p class="bg-gray-300 text-gray-800 p-2 m-2 rounded">
 {{post.author}}

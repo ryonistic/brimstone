@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 {%load static%}
+{% load bleach_tags %}
 {%block title%}Home{%endblock title%}
 {%block content%}
 <h1 class="bg-red-600 text-white font-bold text-center">Admissions closing on {{date_of_closing}}</h1>
@@ -8,11 +9,11 @@
 <h1 class="font-bold text-4xl p-2 m-2 text-center bg-gray-200 text-gray-800">Featured Posts: </h1>
 {% for post in posts %}
 <div class="grid p-2 m-2 border rounded border-2 drop-shadow shadow-2">
-  <div class="flex flex-wrap">
-  <h2 class="font-bold text-3xl">{{post.title}}</h2>
-  <p class="p-2 m-2 bg-gray-300 text-gray-800 rounded">posted on {{post.date_posted}}
+  <div class="flex flex-wrap items-start">
+  <h2 class="font-bold p-2 m-2 text-3xl">{{post.title}}</h2>
+  <p class="p-2 m-2 font-bold bg-gray-300 flex items-center text-gray-800 rounded">posted on {{post.date_posted}}
   </div>
-<p class="p-2 m-2">{{post.content|truncatechars:92}}</p>
+<p class="p-2 m-2">{{post.content|bleach|truncatechars:150}}</p>
 <a href="{{post.get_absolute_url}}" class="text-blue-600">Read more</a>
 {% if post.image %}
 <img src="{{post.image.url}}" class="img-fluid" style="max-width:300px; max-height:auto;" alt="">

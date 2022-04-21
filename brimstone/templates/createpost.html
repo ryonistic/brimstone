@@ -4,7 +4,8 @@
 <div class="grid place-items-center h-screen">
 <form class="grid" method="POST" enctype="multipart/form-data">
   {% csrf_token %}  
-{{form.as_p}}
+  {{ form.media }}
+  {{form.as_p}}
 <button type="submit" class="p-1 m-2 rounded bg-blue-700 text-white font-bold">Post</button>
 </form>
 </div>
