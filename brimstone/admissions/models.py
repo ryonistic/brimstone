@@ -47,6 +47,11 @@ class Admission(models.Model):
             ('28', 'West Bengal')	
             )
 
+    STATUS_CHOICES = (
+            ('0', 'PENDING'),
+            ('1', 'COMPLETED')
+            )
+
     student_name = models.CharField(max_length=150)
     date_of_birth = models.DateField()
     father_name = models.CharField(blank=True, max_length=150)
@@ -59,6 +64,20 @@ class Admission(models.Model):
     state = models.CharField(choices=STATE_CHOICES, max_length=200)
     course = models.ForeignKey(Course, null=True, on_delete=models.SET_NULL)
     admission_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    status = models.CharField(choices=STATUS_CHOICES,default='0' ,max_length=15)
     
     def __str__(self):
         return str(self.admission_id)
+
+class Document(models.Model):
+    student_photo = models.ImageField()
+    highschool_diploma = models.FileField()
+    graduate_degree = models.FileField(blank=True, null=True)
+    address_proof = models.FileField()
+    undertaking = models.FileField()
+    verified = models.BooleanField(default=False)
+    application = models.ForeignKey(Admission, on_delete=models.CASCADE)
+   
+    def __str__(self):
+        return str(self.application.admission_id)
+
