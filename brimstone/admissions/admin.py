@@ -6,5 +6,5 @@ class AdmissionAdmin(admin.ModelAdmin):
     list_display = ('student_name', 'admission_id', 'email')
 
 @admin.register(Document)
-class AdmissionAdmin(admin.ModelAdmin):
+class DocumentAdmin(admin.ModelAdmin):
     list_display = ('application', 'verified')
