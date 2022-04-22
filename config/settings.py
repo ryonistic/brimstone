@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'courses.apps.CoursesConfig',
     'dashboard.apps.DashboardConfig',
+    'admissions.apps.AdmissionsConfig',
 ]
 
 AUTH_USER_MODEL = 'users.User'
