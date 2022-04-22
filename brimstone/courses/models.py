@@ -52,10 +52,15 @@ class DayTime(models.Model):
         return str(self.time) + "'o clock on " + str(self.DAY_CHOICES[int(self.day)-1][1])
 
 class Lesson(models.Model):
-    name = models.CharField(max_length=100)
+    TYPE_CHOICES = (
+            ('1','Theory'),
+            ('2','Practical'),
+            ) 
+    type = models.CharField(choices = TYPE_CHOICES, max_length=50)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
     time = models.ForeignKey(DayTime, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return str(self.name)
+        return f'{str(self.subject)} ({str(self.TYPE_CHOICES[int(self.type)-1][1])})'
+
