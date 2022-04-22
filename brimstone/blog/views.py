@@ -17,7 +17,7 @@ def createpost(request):
                 article = form.save(commit=False)
                 article.author = request.user
                 article.save()
-                messages.success(request, 'Post created successful.')
+                messages.success(request, 'Post created successfully.')
                 return redirect('home')
             else:
                 messages.success(request, 'There was an error with your entries.')

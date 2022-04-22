@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {%block title%}Courses{%endblock title%}
 {%block content%}
+<div class="grid p-2 m-2 ">
 {%for course in courses%}
-<div>
+<div class="grid p-2 m-2 rounded border border-2">
   <h1 class="text-3xl font-bold text-center">{{course.name}}</h1>
-  <p class="bg-gray-200 text-gray-700 font-bold">{{course.duration}} years</p>
+  <p class="text-gray-800">{{course.description}}</p>
+  <p class="rounded bg-gray-100 font-bold text-gray-800 text-1xl">{{course.get_stream_display}} - {{course.duration}} years</p>
 </div>
 {%endfor%}
+</div>
 {%endblock content%}
