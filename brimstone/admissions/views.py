@@ -5,6 +5,16 @@ from django.shortcuts import get_object_or_404, redirect, render
 from admissions.models import Admission, Document
 from .forms import AdmissionRequestForm, DocumentSubmissionForm
 
+# class RequestAdmissionView(SuccessMessageMixin, CreateView):
+#     template_name = 'request_admission.html'
+#     form_class = AdmissionRequestForm
+#     success_message = 'Request Received. You will receive an email upon confirmation.'
+#     success_url = reverse_lazy('home')
+#     def form_valid(self, form):
+#         # Calls the custom send method
+#                return super().form_valid(form)
+#
+
 def request_admission(request):
     if request.method == "POST":
         form = AdmissionRequestForm(request.POST)
