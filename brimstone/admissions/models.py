@@ -1,3 +1,4 @@
+from enum import unique
 from uuid import uuid4
 from django.db import models
 from courses.models import Course
@@ -76,7 +77,7 @@ class Document(models.Model):
     address_proof = models.FileField()
     undertaking = models.FileField()
     verified = models.BooleanField(default=False)
-    application = models.ForeignKey(Admission, on_delete=models.CASCADE)
+    application = models.OneToOneField(Admission, null=True,blank=True, on_delete=models.CASCADE)
    
     def __str__(self):
         return str(self.application.admission_id)

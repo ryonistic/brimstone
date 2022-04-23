@@ -7,4 +7,8 @@ class AdmissionAdmin(admin.ModelAdmin):
 
 @admin.register(Document)
 class DocumentAdmin(admin.ModelAdmin):
-    list_display = ('application', 'verified')
+    list_display = ('get_student_name' , 'application', 'verified')
+
+    @admin.display(description='Student')
+    def get_student_name(self, obj):
+        return obj.application.student_name

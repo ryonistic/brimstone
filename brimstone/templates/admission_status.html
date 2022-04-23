@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{%block title%}
+Application Status
+{% endblock title %}
+{%block content%}
+<div class="grid place-items-center">
+<form class="p-2 m-2 grid" method="POST">
+  {%csrf_token%}
+<div class="flex flex-wrap items-center">
+<label for="application_id" >Application ID</label>
+<input type="text" name="application_id" value="" class="border-2 p-2 m-2" required />
+</div>
+<button type="submit" class="p-2 m-2 bg-blue-700 text-white font-bold">Submit</button>
+</form>
+</div>
+{% if not get_req %}
+      {% if application is not None %}
+        <p class="p-2 m-2">Application Status: {{application.get_status_display}}</p>
+        <p class="p-2 m-2">Student name: {{application.student_name}}</p>
+        <p class="p-2 m-2">Course Registered: {{application.course}}</p>
+        <p class="p-2 m-2">Admission ID: <span class="bg-gray-300 rounded p-2">{{application.admission_id}}</span></p>
+          {% if document is not None %}
+            {% if document.verified %}
+            <p class="p-2 m-2"> Documents verified. Check Email for more information.</p>
+            {% else %}
+            <p class="p-2 m-2"> Document verification pending</p>
+            {% endif %}
+          {% else %}
+            <p class="p-2 m-2"> Documents not yet submitted. Check email for more information.</p>
+          {% endif %}
+      {% else %}
+        <p class="p-2 m-2"> Application not found. Are you sure you entered the correct application ID?</p>
+      {% endif %}
+{% endif %}
+{%endblock content%}
