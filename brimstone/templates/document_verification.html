@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Document Verification{% endblock title %}
+{% block content %}
+{% for document in documents %}
+<div class="p-2 m-2 grid border-2 rounded bg-gray-100 text-gray-800">
+{{document.id}}
+{{document.application.student_name}}
+{{document.application.admission_id}}
+<a type="button" class="p-2 m-2 font-bold text-white bg-gray-700" href="{% url 'approve_document' document.id %}">Approve</a>
+</div>
+{% endfor %}
+{% endblock content %}

@@ -168,6 +168,16 @@ BLEACH_STRIP_TAGS = True
 # Strip comments, or leave them in.
 BLEACH_STRIP_COMMENTS = False
 
+# EMAIL_HOST = secret_manager('EMAIL_HOST')
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = secret_manager('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = secret_manager('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = secret_manager('DEFAULT_FROM_EMAIL')
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Email details
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

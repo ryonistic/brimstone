@@ -1,4 +1,3 @@
-
 from django import forms
 from .models import Admission, Document
 
@@ -17,7 +16,7 @@ class AdmissionRequestForm(forms.ModelForm):
             self.fields[fieldname].widget.attrs['placeholder']=labelmaker
             self.fields[fieldname].label=''
 
-
+    
 class DocumentSubmissionForm(forms.ModelForm):
     class Meta:
         model = Document

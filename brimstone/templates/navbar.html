@@ -28,7 +28,10 @@
 </div>
     <li class="p-2 m-2 text-white font-bold text-1xl"><a href="">Research</a></li>
     <li class="p-2 m-2 text-white font-bold text-1xl"><a href="">About</a></li>
-    {% if user.is_superuser or user.is_staff %}
+    {% if  user.is_staff and user.is_superuser%}
+    <li class="p-2 m-2 text-white font-bold text-1xl"><a href="{% url 'document_verification' %}">Verification</a></li>
+    <li class="p-2 m-2 text-white font-bold text-1xl"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+    {% elif user.is_staff %}
     <li class="p-2 m-2 text-white font-bold text-1xl"><a href="{% url 'dashboard' %}">Dashboard</a></li>
     {% endif%}
     {% if user.is_authenticated %}

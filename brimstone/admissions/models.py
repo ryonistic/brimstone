@@ -81,4 +81,3 @@ class Document(models.Model):
    
     def __str__(self):
         return str(self.application.admission_id)
-

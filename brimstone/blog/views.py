@@ -10,7 +10,7 @@ def home(request):
 
 @login_required
 def createpost(request):
-    if request.user.is_authenticated:
+    if request.user.is_superuser:
         if request.method == "POST":
             form = CreatePostForm(request.POST,  request.FILES)
             if form.is_valid():
@@ -26,7 +26,7 @@ def createpost(request):
             form = CreatePostForm()
         return render(request, 'createpost.html', {'form':form})
     else:
-        return redirect('login')
+        return redirect('home')
 
 
 def postdetail(request, slug):
