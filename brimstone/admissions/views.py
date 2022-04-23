@@ -1,44 +1,61 @@
+from django.http.response import HttpResponseRedirect
+from django.urls import reverse_lazy
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic.edit import CreateView
 from admissions.models import Admission, Document
 from .forms import AdmissionRequestForm, DocumentSubmissionForm
 
-# class RequestAdmissionView(SuccessMessageMixin, CreateView):
-#     template_name = 'request_admission.html'
-#     form_class = AdmissionRequestForm
-#     success_message = 'Request Received. You will receive an email upon confirmation.'
-#     success_url = reverse_lazy('home')
-#     def form_valid(self, form):
-#         # Calls the custom send method
-#                return super().form_valid(form)
-#
+class RequestAdmissionView(SuccessMessageMixin, CreateView):
+    template_name = 'request_admission.html'
+    form_class = AdmissionRequestForm
+    success_message = 'Request Received. You will receive an email upon confirmation.'
+    success_url = reverse_lazy('home')
 
-def request_admission(request):
-    if request.method == "POST":
-        form = AdmissionRequestForm(request.POST)
-        if form.is_valid():
-            form.save()
-            student = form.cleaned_data['student_name']
-            email = form.cleaned_data['email']
-            phone = form.cleaned_data['phone']
-            applicationid = Admission.objects.get(email=email, student_name=student, phone=phone)
-            send_mail(
-                'Documents Approved',
-                f'Greetings {student}! Your application has been Received. You may submit your documents on our website at Nav>Admission>Documentation.Your token is the same as your ApplicationID i.e. {applicationid}',
-                'from@example.com',
-                [str(email)],
-                fail_silently=False,
-                )
-            messages.success(request, 'Request Received. You will receive an email upon confirmation.')
-            return redirect('home')
-        else:
-            messages.success(request, 'Error in submission. Try again.')
-            return redirect('request_admission')
-    else:
-        form = AdmissionRequestForm
-        return render(request, 'request_admission.html', {'form':form})
+    def form_valid(self, form):
+        self.object = form.save()
+        student = form.cleaned_data['student_name']
+        email = form.cleaned_data['email']
+        phone = form.cleaned_data['phone']
+        applicationid = Admission.objects.get(email=email, student_name=student, phone=phone)
+        send_mail(
+            'Documents Approved',
+            f'Greetings {student}! Your application has been Received. You may submit your documents on our website at Nav>Admission>Documentation.Your token is the same as your ApplicationID i.e. {applicationid}',
+            'from@example.com',
+            [str(email)],
+            fail_silently=False,
+            )
+        messages.success(self.request, 'Request Received. You will receive an email upon confirmation.')
+        return HttpResponseRedirect(self.get_success_url())
+
+
+# def request_admission(request):
+#     if request.method == "POST":
+#         form = AdmissionRequestForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             student = form.cleaned_data['student_name']
+#             email = form.cleaned_data['email']
+#             phone = form.cleaned_data['phone']
+#             applicationid = Admission.objects.get(email=email, student_name=student, phone=phone)
+#             send_mail(
+#                 'Documents Approved',
+#                 f'Greetings {student}! Your application has been Received. You may submit your documents on our website at Nav>Admission>Documentation.Your token is the same as your ApplicationID i.e. {applicationid}',
+#                 'from@example.com',
+#                 [str(email)],
+#                 fail_silently=False,
+#                 )
+#             messages.success(request, 'Request Received. You will receive an email upon confirmation.')
+#             return redirect('home')
+#         else:
+#             messages.success(request, 'Error in submission. Try again.')
+#             return redirect('request_admission')
+#     else:
+#         form = AdmissionRequestForm
+#         return render(request, 'request_admission.html', {'form':form})
 
 def document_submission(request):
     if request.method=='POST':
