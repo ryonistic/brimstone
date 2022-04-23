@@ -31,32 +31,6 @@ class RequestAdmissionView(SuccessMessageMixin, CreateView):
         messages.success(self.request, 'Request Received. You will receive an email upon confirmation.')
         return HttpResponseRedirect(self.get_success_url())
 
-
-# def request_admission(request):
-#     if request.method == "POST":
-#         form = AdmissionRequestForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             student = form.cleaned_data['student_name']
-#             email = form.cleaned_data['email']
-#             phone = form.cleaned_data['phone']
-#             applicationid = Admission.objects.get(email=email, student_name=student, phone=phone)
-#             send_mail(
-#                 'Documents Approved',
-#                 f'Greetings {student}! Your application has been Received. You may submit your documents on our website at Nav>Admission>Documentation.Your token is the same as your ApplicationID i.e. {applicationid}',
-#                 'from@example.com',
-#                 [str(email)],
-#                 fail_silently=False,
-#                 )
-#             messages.success(request, 'Request Received. You will receive an email upon confirmation.')
-#             return redirect('home')
-#         else:
-#             messages.success(request, 'Error in submission. Try again.')
-#             return redirect('request_admission')
-#     else:
-#         form = AdmissionRequestForm
-#         return render(request, 'request_admission.html', {'form':form})
-
 def document_submission(request):
     if request.method=='POST':
         form = DocumentSubmissionForm(request.POST, request.FILES)
