@@ -1,3 +1,8 @@
+"""This model will only be altered by the 
+admissions.views's document approving function. 
+All fields are to borrowed from the Document model and
+Admission model as those two instances will be combined after
+verification of documents and that combination will be a student instance."""
 import uuid
 from django.db import models
 from courses.models import Course

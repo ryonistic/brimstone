@@ -1,3 +1,10 @@
+"""User models have case case-insensitive usernames and emails
+this is good because this way, no two usernames can be the same at all.
+By default, django allows usernames like Alex and alex to be considered different,
+but that can cause confusion so i made it so that both usernames will be the same. 
+Anyone who tries to create a username 'alex' when 'Alex' already exists, will be told 
+that they cant do it because a similar enough username exists already, same goes for email. 
+This leads to completely unique usernames to be made."""
 import uuid
 
 from django.contrib.auth.models import AbstractUser

@@ -1,3 +1,4 @@
+"""Two simple urls that list and detail course details."""
 from django.urls import path
 from . import views
 

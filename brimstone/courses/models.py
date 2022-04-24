@@ -1,4 +1,7 @@
-"""This area is reserved for defining object instances for the database tables"""
+"""These models are made for just one thing - Defining a lesson model that 
+can be shown to a teacher in their timetable on the dashboard. Their lesson will
+have a subject and the subject will have a course. Their course will have a duration and 
+and hod(head of department), and the lessons will take place in a Room at a particular Day and Time."""
 from django.db import models
 from django.conf import settings
 

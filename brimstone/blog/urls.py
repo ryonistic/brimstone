@@ -1,3 +1,4 @@
+"""All the urls related to Post creation and Detail view are listed here."""
 from django.urls import path
 from . import views
 

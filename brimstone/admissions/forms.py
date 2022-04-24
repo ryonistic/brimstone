@@ -1,3 +1,7 @@
+"""Forms for admission applicaton
+and for document submission are both listed here. 
+__init__ method is used to change some of their attributes 
+like adding tailwind classes and placeholders and changing some other elemenets."""
 from django import forms
 from .models import Admission, Document
 

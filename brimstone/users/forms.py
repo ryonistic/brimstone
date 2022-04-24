@@ -1,3 +1,7 @@
+"""User Registration form allows users to register themselves on the website. Although
+ there is no use for this anymore as I have removed the register url from the urlconf since
+ I thought it would make more sense for teachers, staff and admins to be created from the admin panel
+ because they are very few in number and are only accepted after many interviews etc."""
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 

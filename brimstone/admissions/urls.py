@@ -1,3 +1,4 @@
+"""All the urls that are related to the admission app are listed here."""
 from django.urls import path
 from . import views
 

@@ -1,4 +1,9 @@
-from enum import unique
+"""Admission model has many choice fields because it seems to 
+be a more efficient way of creating CharFields than using new models
+with foreign keys. Document has mostly file fields. Admission model's UUIDField
+is emailed to the user when they create a new Admission Application instance. 
+This UUID acts like a token for them, they may use it to check application status or 
+for document submission."""
 from uuid import uuid4
 from django.db import models
 from courses.models import Course
@@ -73,7 +78,7 @@ class Admission(models.Model):
 class Document(models.Model):
     student_photo = models.ImageField()
     highschool_diploma = models.FileField()
-    graduate_degree = models.FileField(blank=True, null=True)
+    graduate_degree = models.FileField(null=True)
     address_proof = models.FileField()
     undertaking = models.FileField()
     verified = models.BooleanField(default=False)

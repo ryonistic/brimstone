@@ -1,3 +1,5 @@
+"""This app doesnt contain any models or the like YET.
+In the future, if needed, we may add more details in the dashboard."""
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render

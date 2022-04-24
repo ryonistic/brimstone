@@ -1,3 +1,5 @@
+"""You may create posts or view them on a detailed page.
+Home page shows a list of the posts."""
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
 from .forms import CreatePostForm

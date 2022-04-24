@@ -1,3 +1,4 @@
+"""Students can be listed and viewed in the admin panel. """
 from django.contrib import admin
 from .models import Student
 

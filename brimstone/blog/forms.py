@@ -1,3 +1,5 @@
+"""CKEditorWidget is used to create a powerful Rich text field 
+widget for the user. HTML tags are filtered out by django-bleach."""
 from django import forms
 from .models import Post
 from ckeditor.widgets import CKEditorWidget

@@ -1,3 +1,6 @@
+"""Post mode has an overriden save method that adds a slug to the field 
+and makes sure that the images are less than 700x700 in size. There is also
+a get_absolute_url method to make sure that the url per instance is taken care of."""
 from PIL import Image
 from django.db import models
 from django.utils.text import slugify
