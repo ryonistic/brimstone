@@ -7,6 +7,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.edit import CreateView
 from admissions.models import Admission, Document
+from students.models import Student
 from .forms import AdmissionRequestForm, DocumentSubmissionForm
 
 class RequestAdmissionView(SuccessMessageMixin, CreateView):
@@ -99,6 +100,24 @@ def approve_document(request, document_id):
         [str(document.application.email)],
         fail_silently=False,
         )
+        new_student = Student.objects.create(
+                name=document.application.student_name,
+                email=document.application.email,
+                phone = document.application.phone,
+                course=document.application.course,
+                date_of_birth=document.application.date_of_birth,
+                father_name= document.application.father_name,
+                mother_name = document.application.mother_name,
+                gender = document.application.gender,
+                address = document.application.address,
+                state = document.application.state,
+                student_photo = document.student_photo,
+                highschool_diploma = document.highschool_diploma,
+                graduate_degree = document.graduate_degree,
+                address_proof = document.address_proof,
+                undertaking = document.undertaking,
+                )  
+        new_student.save()
         messages.success(request, 'Document verification complete')
         return redirect('document_verification')
     else:
