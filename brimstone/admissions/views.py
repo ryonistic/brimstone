@@ -121,8 +121,7 @@ def approve_document(request, document_id):
         adm.save()
         send_mail(
         'Documents Approved',
-        f'Congratulations {document.application.student_name}! Your documents have been approved.\
-                You may download your timetable from the below link.',
+        f'Congratulations {document.application.student_name}! Your documents have been approved. Welcome to Brimstone!',
         'from@example.com',
         [str(document.application.email)],
         fail_silently=False,
