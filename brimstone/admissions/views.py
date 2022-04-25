@@ -140,7 +140,6 @@ def approve_document(request, document_id):
                 state = document.application.state,
                 student_photo = document.student_photo,
                 highschool_diploma = document.highschool_diploma,
-                graduate_degree = document.graduate_degree,
                 address_proof = document.address_proof,
                 undertaking = document.undertaking,
                 )  

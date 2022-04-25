@@ -23,7 +23,6 @@ class Student(models.Model):
     state = models.CharField(max_length=200)
     student_photo = models.ImageField()
     highschool_diploma = models.FileField()
-    graduate_degree = models.FileField(blank=True, null=True)
     address_proof = models.FileField()
     undertaking = models.FileField()
     def __str__(self):

@@ -24,11 +24,11 @@ class AdmissionRequestForm(forms.ModelForm):
 class DocumentSubmissionForm(forms.ModelForm):
     class Meta:
         model = Document
-        fields =  ('student_photo', 'highschool_diploma', 'graduate_degree', 'address_proof', 'undertaking')
+        fields =  ('student_photo', 'highschool_diploma', 'address_proof', 'undertaking')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        for fieldname in ['student_photo', 'highschool_diploma', 'graduate_degree', 'address_proof', 'undertaking']:
+        for fieldname in ['student_photo', 'highschool_diploma', 'address_proof', 'undertaking']:
             self.fields[fieldname].widget.attrs['class']='p-2 m-2 border border-2 rounded min-w-full'
 

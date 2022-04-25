@@ -5,10 +5,17 @@ from django.contrib import messages
 from .forms import CreatePostForm
 from .models import Post
 from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
 
 def home(request):
     posts = Post.objects.all()
     return render(request, 'home.html', {'date_of_closing':'24th of June', 'posts':posts})
+
+class AboutView(TemplateView):
+    template_name='about.html'
+
+class ResearchView(TemplateView):
+    template_name='research.html'
 
 @login_required
 def createpost(request):

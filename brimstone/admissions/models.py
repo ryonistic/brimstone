@@ -78,7 +78,6 @@ class Admission(models.Model):
 class Document(models.Model):
     student_photo = models.ImageField()
     highschool_diploma = models.FileField()
-    graduate_degree = models.FileField(null=True)
     address_proof = models.FileField()
     undertaking = models.FileField()
     verified = models.BooleanField(default=False)
