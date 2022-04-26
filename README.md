@@ -7,7 +7,7 @@ Author: Ramsharan Kanwar (ryonistic)
 ## **This code was written with Django 4.0.4.**
 
 ## Showcase
-![showcase/home.png]() 
+![https://github.com/ryonistic/brimstone/blob/17058e9c9f28a37853da20975c3401c4a2229c82/showcase/home.png]() 
 Setting up brimstone to work is very easy. You need to
 make install dependencies from requirements.txt, alter some code 
 in settings.py. Some of these changes are covered below.
