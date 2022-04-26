@@ -7,11 +7,8 @@ Author: Ramsharan Kanwar (ryonistic)
 ## **This code was written with Django 4.0.4.**
 
 ## Showcase
-## Home Page 
 <img src="https://github.com/ryonistic/brimstone/blob/17058e9c9f28a37853da20975c3401c4a2229c82/showcase/home.png" width="450" height="300" alt="Home Page" />
-## Ckeditor for post creation
 <img src="https://github.com/ryonistic/brimstone/blob/0889838e4d8134f12965ddd67b7201c3f4a9af07/showcase/postcreate.png" width="450" height="300" alt="Ckeditor" />
-## Dashboard for showcasing timetable
 <img src="https://github.com/ryonistic/brimstone/blob/0889838e4d8134f12965ddd67b7201c3f4a9af07/showcase/teachers_dashboard.png" width="450" height="300" alt="Dashboard" />
 ## Setting up brimstone to work is very easy. You need to
 make install dependencies from requirements.txt, alter some code 
