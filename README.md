@@ -6,6 +6,8 @@ their respective modules and packages.
 Author: Ramsharan Kanwar (ryonistic)
 ## **This code was written with Django 4.0.4.**
 
+## Showcase
+![showcase/home.png]() 
 Setting up brimstone to work is very easy. You need to
 make install dependencies from requirements.txt, alter some code 
 in settings.py. Some of these changes are covered below.
