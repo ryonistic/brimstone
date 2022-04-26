@@ -15,12 +15,14 @@ in settings.py. Some of these changes are covered below.
 To configure brimstone to work, you will need a postgresql database named brimstone with
 user 'brimstone_admin' and password set according to the settings.py file. You may use sqlite 
 if you want to, but you may then set the DATABASES settings to the following:
-  `DATABASES = {
+`
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}`
+}
+`
 You'll also need to setup your environment, because the project expects environment
 variables to show a secret key. Since the project is left in DEBUG mode, you may want to set up your own
 secret key in the .env file.
