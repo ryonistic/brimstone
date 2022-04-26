@@ -1,5 +1,4 @@
 # brimstone
-==============================================
 
 This project is part of my portfolio. All code is documented in 
 their respective modules and packages.
