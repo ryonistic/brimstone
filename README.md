@@ -1,10 +1,11 @@
-# This project is part of my portfolio. All code is documented in 
-# their respective modules and packages.
+# brimstone
+==============================================
+
+This project is part of my portfolio. All code is documented in 
+their respective modules and packages.
 
 Author: Ramsharan Kanwar (ryonistic)
 [MIT-licensed]
-==============================================
-# brimstone
 **This code was written with Django 4.0.4.**
 
 Setting up brimstone to work is very easy. You need to
